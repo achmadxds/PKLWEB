@@ -35,12 +35,6 @@ $(document).ready(function() {
     });
     if (a == 0 && $('.msg').text() == "" && $('.msg2').text() == "") {
       $('.btn-submit').attr('type', 'submit');
-      setTimeout(() => 
-      {  
-        swal("Nice, Berhasil Mengupload!", {
-          icon: "success",
-        });
-      }, 2000);
     } else {
       swal("isi semua data dan pastikan series tersedia dan belum ada!", {
         icon: "error",
@@ -131,7 +125,7 @@ $(document).ready(function() {
             break;
           }
         });
-        $link.val(gen);
+        $link.val(data.anime);
         if (data.cekjudul) {
           $('.msg').text('tambah series dahulu');
           $judul.attr('style', 'border-color: red; margin-bottom:10px; font-size: 20px;');

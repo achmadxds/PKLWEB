@@ -338,11 +338,11 @@ function getStringBetween($string, $start, $end)
 function getAnime($link, $judul_p, $eps)
 {
   $link = file_get_contents($link);
-  $title = getStringBetween($link, 'class="title">', '</h1>');
+  $title = getStringBetween($link, 'class="pagetitle"><h1>', '</h1>');
   $title = explode("Episode", $title);
   $judul = trim($title[0]);
   $episode = substr_replace($title[1], "", strlen($title[1]) - strlen('Subtitle Indonesia'));
-  $anime = getStringBetween($link, '<div class="servers">', '</div>');
+  $anime = getStringBetween($link, '<source src="', '" type="');
 
   $cekjudul = checkJudul(trim($judul), $judul_p);
   $cekepisode = checkEpisode(trim($judul), trim($episode), $eps);
